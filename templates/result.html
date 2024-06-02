@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Review Page</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+</head>
+
+<body>
+
+    <div class="table-users">
+        <div class="header">Data</div>
+        <table cellspacing="0">
+            <tr>
+                <th>Title</th>
+                <th>Views</th>
+                <th>Video Link</th>
+                <th>Thumbnail Link</th>
+                <th>Likes</th>
+                <th>Time Posted</th>
+            </tr>
+            {% for video in reviews %}
+            <tr>
+                <td>{{ video.Title }}</td>
+                <td>{{ video.Views }}</td>
+                <td><a href="{{ video.URL }}" target="_blank">{{ video.URL }}</a></td>
+                <td><a href="{{ video['Thumbnail URL'] }}" target="_blank">{{ video['Thumbnail URL'] }}</a></td>
+                <td>{{ video.Likes }}</td>
+                <td>{{ video['Time Posted'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+
+</html>
